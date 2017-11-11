@@ -1,22 +1,34 @@
+
 <template>
-  <div id="app">
-    <router-view></router-view>
-  </div>
+  <v-app id="inspire">
+    <layout-menu  :drawer="drawer"></layout-menu>
+    <v-toolbar color="cyan lighten-1" dark fixed app>
+      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+      <v-toolbar-title>Bookstore</v-toolbar-title>
+    </v-toolbar>
+    <main>
+      <v-content>
+        <v-container fluid fill-height>
+          <v-layout justify-center align-center>
+            <router-view></router-view>
+          </v-layout>
+        </v-container>
+      </v-content>
+    </main>
+    <layout-footer></layout-footer>
+  </v-app>
 </template>
 
 <script>
-export default {
-  name: 'app',
-};
+  export default {
+    data: () => ({
+      drawer: true
+    }),
+    props: {
+      source: String
+    }
+  }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+
+
