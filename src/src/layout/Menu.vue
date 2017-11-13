@@ -6,23 +6,7 @@
       app
     >
       <v-list dense v-for="menuItem in menuItems">
-        <layout-menu-item :icon="menuItem.icon" :name="menuItem.text"></layout-menu-item>
-        <!-- <v-list-tile @click="">
-          <v-list-tile-action>
-            <v-icon>Home</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title>Home</v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
-        <v-list-tile @click="">
-          <v-list-tile-action>
-            <v-icon>Book</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title>Bookstore</v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile> -->
+        <layout-menu-item :icon="menuItem.icon" :name="menuItem.text" :link="menuItem.link"></layout-menu-item>
       </v-list>
     </v-navigation-drawer>
 </template>
@@ -37,8 +21,8 @@ export default {
       msg: 'Hello world',
       // drawer: true,
       menuItems: [
-        {icon: 'Home', text: 'Home'},
-        {icon: 'Book', text: 'Bookstore'}
+        {icon: 'Home', text: 'Home', link: '/'},
+        {icon: 'Book', text: 'Bookstore', link: 'Bookstore'}
         ],
     };
   },
