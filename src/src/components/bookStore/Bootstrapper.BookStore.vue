@@ -1,29 +1,18 @@
 <template>
   <div>
-    <h1>{{msg}} blablabla {{books}}</h1>
+    <h1>{{msg}} blablabla </h1>
+    <h2> <span>{{ $t('Library') }}</span></h2>
     <!-- <button v-on:click="addBook">Add book</button> -->
     <v-btn fab  color="indigo" v-on:click="addBook">
       <v-icon large color="white">add</v-icon>
     </v-btn>
-    <v-layout>
-
-      <div v-for="book in books">
-        <v-flex xs12 sm6 offset-sm3>
-          <v-card>
-            <v-card-title primary-title>
-              <div>
-                <h3 class="headline mb-0">Kangaroo Valley Safari</h3>
-                <div>Located two hours south of Sydney in the <br>Southern Highlands of New South Wales, ...</div>
-              </div>
-            </v-card-title>
-            <v-card-actions>
-              <v-btn flat color="orange">Share</v-btn>
-              <v-btn flat color="orange">Explore</v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-flex>
-      </div>
+    <v-layout wrap> <!-- row wrap> -->
+      <v-flex v-for="book in books">
+        <book :name="book.name" :year="book.year" :authorName="book.authorName" :href="book.href" v-on:showEdition="showEdition" ></book> <!---:bookEdition="bookEdition"-->
+      </v-flex>
     </v-layout>
+
+    <book-editor :bookEdition="bookEdition" :bookForEdit="bookForEdit" v-on:hideEdition="hideEdition"></book-editor>
   </div>
 </template>
 
@@ -31,12 +20,19 @@
 import actions from 'store/action-types';
 import getters from 'store/getter-types';
 
+// components
+import BookComponent from './Book';
+import BookModalEditorComponent from './Book.Editor';
+
+
 export default {
   name: 'bookstore',
   data() {
     return {
-      msg: 'Hello world' + this.$store.getters[getters.book.BOOKS],
+      msg: 'Hello world',
       store: this.$store,
+      bookEdition: false,
+      bookForEdit: {}
     };
   },
   computed: {
@@ -48,8 +44,19 @@ export default {
     addBook(){
       // ADD_BOOK(store, 22);
       this.$store.dispatch(actions.book.ADD_BOOK, 22); //"ADD_BOOK", 22);
-
+    },
+    showEdition(book){
+      this.bookEdition = true;
+      this.bookForEdit = book;
+    },
+    hideEdition(book){
+      this.bookEdition = false;
+      this.bookForEdit = {};
     }
+  },
+  components:{
+    book: BookComponent,
+    'book-editor': BookModalEditorComponent
   }
 };
 </script>
