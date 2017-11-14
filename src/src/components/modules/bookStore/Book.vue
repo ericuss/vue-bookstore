@@ -1,11 +1,14 @@
 <template>
-    <v-flex d-flex xs12 offset-sm2>
+    <v-flex d-flex xs12 offset-sm1 class="mb-4 book-flex">
         <v-card  >
-            <v-card-title primary-title>
+            <v-card-title primary-title class="pa-0">
+                <v-btn fab absolute top left small color="red text-lg-right delete" >
+                    <v-icon small color="white">delete</v-icon>
+                </v-btn>
                 <v-btn fab absolute top right small color="indigo text-lg-right" @click.stop="showEdition">
                     <v-icon small color="white">edit</v-icon>
                 </v-btn>
-                <v-subheader wrap class="headline mb-0">{{name}}</v-subheader>
+                <v-subheader  class="truncate">{{name}}</v-subheader>
             </v-card-title>
             <v-card-media :src="href" height="200px" xs12>
                 <!-- <span>{{name}}</span> -->
@@ -51,6 +54,21 @@ export default {
 </script>
 
 <style scoped>
+   .book-flex:hover .delete{
+       display: block;
+    }
+    .book-flex .delete{
+       display: none;
+    }
+
+    .truncate{
+        /* max-width: 100%; */
+        margin-right: 10px; 
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
     .flex{
         max-width: 100px;
     }
