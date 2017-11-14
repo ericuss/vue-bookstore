@@ -1,11 +1,11 @@
 <template>
-  <v-list-tile @click="" :to="link" >
+  <v-list-tile :to="link" >
     <v-list-tile-action>
       <v-icon class="blue-grey--text">{{icon}}</v-icon>
     </v-list-tile-action>
     <v-list-tile-content>
       <v-list-tile-title class="blue-grey--text">
-          {{name}}
+          <v-text :text="name"></v-text>
       </v-list-tile-title>
     </v-list-tile-content>
   </v-list-tile>

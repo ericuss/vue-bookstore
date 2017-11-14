@@ -5,7 +5,7 @@
       enable-resize-watcher
       app
     >
-      <v-list dense v-for="menuItem in menuItems">
+      <v-list dense v-for="menuItem in menuItems" :key="menuItem.text">
         <layout-menu-item :icon="menuItem.icon" :name="menuItem.text" :link="menuItem.link"></layout-menu-item>
       </v-list>
     </v-navigation-drawer>
@@ -21,9 +21,9 @@ export default {
       msg: 'Hello world',
       // drawer: true,
       menuItems: [
-        {icon: 'Home', text: 'Home', link: '/'},
-        {icon: 'Book', text: 'Bookstore', link: 'Bookstore'}
-        ],
+        { icon: 'Home', text: 'Home', link: '/' },
+        { icon: 'Book', text: 'Bookstore.Library', link: 'Bookstore' }
+      ],
     };
   },
 };

@@ -1,5 +1,5 @@
 <template>
-    <v-flex d-flex xs12 offset-sm2 class>
+    <v-flex d-flex xs12 offset-sm2>
         <v-card  >
             <v-card-title primary-title>
                 <v-btn fab absolute top right small color="indigo text-lg-right" @click.stop="showEdition">

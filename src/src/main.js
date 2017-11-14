@@ -10,6 +10,7 @@ import App from './App';
 import Menu from './layout/Menu';
 import MenuItem from './layout/Menu.item';
 import Footer from './layout/Footer';
+import TextControl from './components/controls/Text';
 // import Book from './components/bookStore/book'; // remove 
 
 import router from './router';
@@ -26,6 +27,7 @@ i18nWrapper.configure(Vue);
 Vue.component('layout-menu', Menu);
 Vue.component('layout-menu-item', MenuItem);
 Vue.component('layout-footer', Footer);
+Vue.component('v-text', TextControl);
 
 
 /* eslint-disable no-new */

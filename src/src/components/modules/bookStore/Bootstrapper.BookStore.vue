@@ -1,17 +1,24 @@
 <template>
   <div>
-    <h1>{{msg}} blablabla </h1>
-    <h2> <span>{{ $t('Library') }}</span></h2>
+    <h2> <v-text :text="'Bookstore.Library'"></v-text></h2>
     <!-- <button v-on:click="addBook">Add book</button> -->
-    <v-btn fab  color="indigo" v-on:click="addBook">
-      <v-icon large color="white">add</v-icon>
-    </v-btn>
-    <v-layout wrap> <!-- row wrap> -->
-      <v-flex v-for="book in books">
+    <v-layout wrap class="show-overflow"> <!-- row wrap> -->
+      <v-flex v-for="book in books" :key="book.id">
         <book :name="book.name" :year="book.year" :authorName="book.authorName" :href="book.href" v-on:showEdition="showEdition" ></book> <!---:bookEdition="bookEdition"-->
       </v-flex>
     </v-layout>
 
+
+    <v-btn
+      fab
+      bottom
+      right
+      dark
+      float
+      color="indigo" 
+      v-on:click="addBook">
+        <v-icon large color="white">add</v-icon>
+    </v-btn>
     <book-editor :bookEdition="bookEdition" :bookForEdit="bookForEdit" v-on:hideEdition="hideEdition"></book-editor>
   </div>
 </template>
@@ -63,6 +70,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.show-overflow{
+  overflow-y: auto;
+  height: 100%;
+}
 h1,
 h2 {
   font-weight: normal;

@@ -1,3 +1,5 @@
 {
-    "Library": "Libreria"
+    "Bookstore":{
+        "Library": "Libreria"
+    }
 }

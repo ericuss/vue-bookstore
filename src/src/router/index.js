@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Hello from '@/components/Hello';
-import BookStore from '@/components/bookStore/Bootstrapper.BookStore';
+import BookStore from '@/components/modules/bookStore/Bootstrapper.BookStore';
 
 Vue.use(Router);
 
