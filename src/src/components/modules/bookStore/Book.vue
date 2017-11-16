@@ -10,7 +10,7 @@
                 </v-btn>
                 <v-subheader  class="truncate">{{name}}</v-subheader>
             </v-card-title>
-            <v-card-media :src="href" height="200px" xs12>
+            <v-card-media :src="href" height="250px" xs12>
                 <!-- <span>{{name}}</span> -->
             </v-card-media>
             <v-card-actions>

@@ -1,5 +1,5 @@
 <template>
-  <v-list-tile>
+  <v-list-tile :to="link">
     <v-list-tile-action>
       <v-icon class="blue-grey--text">{{icon}}</v-icon>
     </v-list-tile-action>

@@ -10,7 +10,7 @@ class I18n{
         Vue.i18n.add('en', Object.assign({}, en, en_bookstore));
         Vue.i18n.add('es', Object.assign({}, es, es_bookstore));
         
-        Vue.i18n.set('es');
+        Vue.i18n.set('en');
     }
 }
 
