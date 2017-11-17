@@ -26,7 +26,8 @@ export default {
       // drawer: true,
       menuItems: [
         { icon: 'home', text: 'Home', link: '/' },
-        { icon: 'book', text: 'Bookstore.Library', link: 'Bookstore' }
+        { icon: 'book', text: 'Bookstore.Library', link: 'Bookstore' },
+        { icon: 'grid_on', text: 'Grid', link: 'BookstoreCrud' },
       ],
     };
   },
