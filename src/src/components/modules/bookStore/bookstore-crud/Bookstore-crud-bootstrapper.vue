@@ -1,7 +1,7 @@
 <template>
     <v-card class="cent-per-cent-wd">
         <v-card-title>
-            <v-text dark :text="'Bookstore.Library'"></v-text>
+            <h3><v-text dark :text="'Bookstore.Library'"></v-text></h3>
             <v-spacer></v-spacer>
             <v-text-field
                 append-icon="search"
