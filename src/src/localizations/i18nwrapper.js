@@ -2,17 +2,17 @@ import Vue from 'vue';
 import vuexI18n from 'vuex-i18n';
 import store from '../store/store';
 
-import es from './es';
-import es_bookstore from './bookStore/es';
+import es from './es.json';
+import esBookstore from './bookStore/es.json';
 
-import en from './en';
-import en_bookstore from './bookStore/en';
+import en from './en.json';
+import enBookstore from './bookStore/en.json';
 
 export default {
-    configure(){        
+    configure() {
         Vue.use(vuexI18n.plugin, store);
-        Vue.i18n.add('en', Object.assign({}, en, en_bookstore));
-        Vue.i18n.add('es', Object.assign({}, es, es_bookstore));
-        Vue.i18n.set('en');
-    }
+        Vue.i18n.add('en', Object.assign({}, en, enBookstore));
+        Vue.i18n.add('es', Object.assign({}, es, esBookstore));
+        Vue.i18n.set('es');
+    },
 };

@@ -24,24 +24,29 @@
     </v-flex>
 </template>
 
-<script>    
+<script>
 export default {
     props: {
-        name: { type: String, default: "" },
-        year:  { type: Number, default: 0 },
-        authorName:  { type: String, default: "" },
-        href: {type: String, default: ""},
+        name: { type: String, default: '' },
+        year: { type: Number, default: 0 },
+        authorName: { type: String, default: '' },
+        href: { type: String, default: '' },
     },
     methods: {
-        'showEdition': function() {
+        showEdition() {
             const book = this.mapToModal();
             this.$emit('showEdition', book);
-        }, 
-        mapToModal(){
-            return { name: this.name, year: this.year, authorName: this.authorName, href: this.href };
-        }
+        },
+        mapToModal() {
+            return {
+                name: this.name,
+                year: this.year,
+                authorName: this.authorName,
+                href: this.href,
+            };
+        },
     },
-}
+};
 </script>
 
 <style scoped>
@@ -53,7 +58,6 @@ export default {
     }
 
     .truncate{
-        /* max-width: 100%; */
         margin-right: 10px; 
         white-space: nowrap;
         overflow: hidden;

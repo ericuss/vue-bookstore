@@ -15,38 +15,38 @@
     </v-dialog>
 </template>
 
-<script>    
+<script>
 export default {
-    props: {
-        bookEdition: {type: Boolean, default: false },
-        bookForEdit: {type: Object },
+props: {
+    bookEdition: { type: Boolean, default: false },
+    bookForEdit: { type: Object },
+},
+data() {
+    return {
+        name: '',
+        year: 0,
+        authorName: '',
+        href: '',
+    };
+},
+watch: {
+    bookForEdit() {
+        this.name = this.bookForEdit.name || '';
+        this.year = this.bookForEdit.year || '';
+        this.authorName = this.bookForEdit.authorName || '';
+        this.href = this.bookForEdit.href || '';
     },
-    data(){
-        return {            
-            name: "",
-            year: 0,
-            authorName: "",
-            href: "",
-        };
+},
+methods: {
+    hideEdition() {
+        // const book = this.mapToModal();
+        this.$emit('hideEdition');
     },
-    watch: {
-        bookForEdit(){
-            this.name = this.bookForEdit.name || "";
-            this.year = this.bookForEdit.year || "";
-            this.authorName = this.bookForEdit.authorName || "";
-            this.href = this.bookForEdit.href || ""; 
-        }
+    mapToModal() {
+        return { name: this.name, year: this.year, authorName: this.authorName, href: this.href };
     },
-    methods: {
-        'hideEdition': function() {
-            const book = this.mapToModal();
-            this.$emit('hideEdition');
-        }, 
-        mapToModal(){
-            return { name: this.name, year: this.year, authorName: this.authorName, href: this.href };
-        }
-    },
-}
+},
+};
 </script>
 
 <style scoped>

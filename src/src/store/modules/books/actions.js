@@ -1,8 +1,7 @@
 import * as mutationTypes from './mutation-types';
 
 export const INCREMENT = (state) => {
-	
-	state.commit(mutationTypes.INCREMENT_MUTATION, book);
+	state.commit(mutationTypes.INCREMENT_MUTATION);
 	const newState = Object.assign(state, { count: state.count + 1 });
 	return newState;
 };

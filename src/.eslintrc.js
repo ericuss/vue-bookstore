@@ -25,7 +25,8 @@ module.exports = {
 	// add your custom rules here
 	'rules': {
 		"linebreak-style": 0, // windows style
-		"indent": [2, "tab"],
+		// when es6 with vue appears errors of indentation
+		"indent": "off",// [2, "tab"],
 		"no-mixed-spaces-and-tabs": [2, "smart-tabs"],
 		"no-tabs": 0,
 		// don't require .vue extension when importing
@@ -37,6 +38,8 @@ module.exports = {
 		'import/no-extraneous-dependencies': ['error', {
 			'optionalDependencies': ['test/unit/index.js']
 		}],
+		// when try to import './foo' appears an error, defused
+		'import/no-unresolved': "off",
 		// allow debugger during development
 		'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
 	}

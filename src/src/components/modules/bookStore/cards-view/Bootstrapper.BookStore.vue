@@ -44,28 +44,27 @@ export default {
     };
   },
   computed: {
-    books: function(){
+    books() {
       return this.$store.getters[getters.book.BOOKS];
-    }
-  },
-  methods:{
-    addBook(){
-      // ADD_BOOK(store, 22);
-      this.$store.dispatch(actions.book.ADD_BOOK, 22); //"ADD_BOOK", 22);
     },
-    showEdition(book){
+  },
+  methods: {
+    addBook() {
+      this.$store.dispatch(actions.book.ADD_BOOK, 22);
+    },
+    showEdition(book) {
       this.bookEdition = true;
       this.bookForEdit = book;
     },
-    hideEdition(book){
+    hideEdition() {
       this.bookEdition = false;
       this.bookForEdit = {};
-    }
+    },
   },
-  components:{
+  components: {
     book: BookComponent,
-    'book-preview': BookPreviewComponent
-  }
+    'book-preview': BookPreviewComponent,
+  },
 };
 </script>
 

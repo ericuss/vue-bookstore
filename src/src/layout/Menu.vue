@@ -14,17 +14,12 @@
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title><v-text :text="'Bookstore'"></v-text></v-toolbar-title>
     </v-toolbar>
-
   </div>
 </template>
 
 <script>
-import getters from 'store/getter-types';
-// import actions from 'store/action-types';
-
 export default {
   name: 'layout-menu',
-  // props:['drawer'],
   data() {
     return {
       msg: 'Hello world',
@@ -36,15 +31,5 @@ export default {
       ],
     };
   },
-  // computed: {
-  //   drawerStored: () => {
-  //     debugger;
-  //     this.drawer =  this.$store.getters[getters.MENU_DRAWER];
-  //   }
-  // },
 };
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-</style>

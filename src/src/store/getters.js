@@ -1,1 +1,1 @@
-export const MENU_DRAWER = state => state.menu.drawer;
+// export const MENU_DRAWER = state => state.menu.drawer;

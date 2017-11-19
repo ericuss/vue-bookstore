@@ -46,27 +46,20 @@
     import getters from 'store/getter-types';
 
     export default {
-        data () {
+        data() {
             return {
-                search:'',
+                search: '',
                 items: this.$store.getters[getters.book.BOOKS],
                 headers: [
                     { text: 'Name', value: 'name', align: 'left' },
-                    { text: 'Year', value: 'year'  },
+                    { text: 'Year', value: 'year' },
                     { text: 'Author', value: 'authorName', align: 'left', sortable: false },
                     { text: '', value: 'id', align: 'right', sortable: false },
                 ],
             };
         },
-        methods:{
-            addBook(){
-                alert("aksjdlaksj");
-            }
-        }
-    }
+    };
 </script>
-<style scoped>
-</style>
 
 <style scoped>
     .cent-per-cent-wd {

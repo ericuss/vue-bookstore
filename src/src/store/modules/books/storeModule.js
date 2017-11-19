@@ -9,7 +9,7 @@ const module = {
 	state,
 	getters,
 	mutations,
-	actions
+	actions,
 };
 
 export default module;

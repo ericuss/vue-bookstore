@@ -18,9 +18,9 @@
 <script>
   export default {
     props: {
-      source: String
+      source: String,
     },
-  }
+  };
 </script>
 
 
