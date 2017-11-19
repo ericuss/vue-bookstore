@@ -43,15 +43,13 @@ methods: {
         this.$emit('hideEdition');
     },
     mapToModal() {
-        return { name: this.name, year: this.year, authorName: this.authorName, href: this.href };
+        return {
+            name: this.name,
+            year: this.year,
+            authorName: this.authorName,
+            href: this.href,
+        };
     },
 },
 };
 </script>
-
-<style scoped>
-    .flex{
-        max-width: 100px;
-    }
-</style>
-

@@ -5,6 +5,7 @@
       v-model="drawer"
       enable-resize-watcher
       app
+      fixed
     >
       <v-list v-for="menuItem in menuItems" :key="menuItem.text">
           <layout-menu-item :icon="menuItem.icon" :name="menuItem.text" :link="menuItem.link"></layout-menu-item>
@@ -22,8 +23,7 @@ export default {
   name: 'layout-menu',
   data() {
     return {
-      msg: 'Hello world',
-      drawer: null,
+      drawer: false,
       menuItems: [
         { icon: 'home', text: 'Home', link: '/' },
         { icon: 'book', text: 'Bookstore.Library', link: 'Bookstore' },

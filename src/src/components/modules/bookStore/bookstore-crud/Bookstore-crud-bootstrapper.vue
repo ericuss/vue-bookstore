@@ -51,10 +51,27 @@
                 search: '',
                 items: this.$store.getters[getters.book.BOOKS],
                 headers: [
-                    { text: 'Name', value: 'name', align: 'left' },
-                    { text: 'Year', value: 'year' },
-                    { text: 'Author', value: 'authorName', align: 'left', sortable: false },
-                    { text: '', value: 'id', align: 'right', sortable: false },
+                    {
+                        text: 'Name',
+                        value: 'name',
+                        align: 'left',
+                    },
+                    {
+                        text: 'Year',
+                        value: 'year',
+                    },
+                    {
+                        text: 'Author',
+                        value: 'authorName',
+                        align: 'left',
+                        sortable: false,
+                    },
+                    {
+                        text: '',
+                        value: 'id',
+                        align: 'right',
+                        sortable: false,
+                    },
                 ],
             };
         },

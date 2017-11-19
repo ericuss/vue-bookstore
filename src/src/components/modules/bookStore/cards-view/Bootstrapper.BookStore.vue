@@ -3,13 +3,11 @@
     <h2 class="blue-grey--text text--darken-1" >
       <v-text dark :text="'Bookstore.Library'"></v-text>
     </h2>
-    <!-- <button v-on:click="addBook">Add book</button> -->
-    <v-layout wrap class="show-overflow"> <!-- row wrap> -->
+    <v-layout wrap class="show-overflow">
       <v-flex v-for="book in books" :key="book.id" class="book">
         <book :name="book.name" :year="book.year" :authorName="book.authorName" :href="book.href" v-on:showEdition="showEdition" ></book> <!---:bookEdition="bookEdition"-->
       </v-flex>
     </v-layout>
-
 
     <v-btn
       fab
