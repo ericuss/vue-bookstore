@@ -5,15 +5,32 @@ var merge = require('webpack-merge')
 var baseWebpackConfig = require('./webpack.base.conf')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
+var path = require('path');
 
 // add hot-reload related code to entry chunks
 Object.keys(baseWebpackConfig.entry).forEach(function (name) {
   baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(baseWebpackConfig.entry[name])
-})
+});
+
+function resolve (dir) {
+  return path.join(__dirname, '..', dir)
+}
+
+const rules = utils.styleLoaders({ sourceMap: config.dev.cssSourceMap });
+
+rules.push({
+  test: /\.(js|vue)$/,
+  loader: 'eslint-loader',
+  enforce: 'pre',
+  include: [resolve('src'), resolve('test')],
+  options: {
+    formatter: require('eslint-friendly-formatter')
+  }
+});
 
 module.exports = merge(baseWebpackConfig, {
   module: {
-    rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap })
+    rules: rules,
   },
   // cheap-module-eval-source-map is faster for development
   devtool: '#cheap-module-eval-source-map',

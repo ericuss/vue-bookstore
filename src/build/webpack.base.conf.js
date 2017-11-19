@@ -26,20 +26,20 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
-      'store':  path.join(process.cwd(), 'src/store/'),//path.resolve(__dirname, './src/store/')
+      'store':  path.join(process.cwd(), 'src/store/'), // path.resolve(__dirname, './src/store/')
     }
   },
   module: {
     rules: [
-      {
-        test: /\.(js|vue)$/,
-        loader: 'eslint-loader',
-        enforce: 'pre',
-        include: [resolve('src'), resolve('test')],
-        options: {
-          formatter: require('eslint-friendly-formatter')
-        }
-      },
+      // {
+      //   test: /\.(js|vue)$/,
+      //   loader: 'eslint-loader',
+      //   enforce: 'pre',
+      //   include: [resolve('src'), resolve('test')],
+      //   options: {
+      //     formatter: require('eslint-friendly-formatter')
+      //   }
+      // },
       {
         test: /\.vue$/,
         loader: 'vue-loader',

@@ -3,10 +3,10 @@ import vuexI18n from 'vuex-i18n';
 import store from '../store/store';
 
 import es from './es.json';
-import esBookstore from './bookStore/es.json';
+import esBookstore from './bookstore/es.json';
 
 import en from './en.json';
-import enBookstore from './bookStore/en.json';
+import enBookstore from './bookstore/en.json';
 
 export default {
     configure() {
