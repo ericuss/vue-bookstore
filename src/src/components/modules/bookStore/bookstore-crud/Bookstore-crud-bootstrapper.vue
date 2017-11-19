@@ -18,11 +18,20 @@
                 item-key="name"
                 v-bind:search="search"
                 class="elevation-1 cent-per-cent-wd">
-            <template slot="items" scope="props">
+            <template slot="items" slot-scope="props">
                 <tr  >
                     <td class="text-xs-left">{{ props.item.name }}</td>
                     <td class="text-xs-right">{{ props.item.year }}</td>
                     <td class="text-xs-left">{{ props.item.authorName }}</td>
+                    <td class="text-xs-right">
+                        <v-btn dark     
+                            fab                      
+                            small 
+                            color="blue accent-3 elevation-1" 
+                            v-on:click="addBook">
+                                <v-icon color="white">edit</v-icon>
+                            </v-btn>
+                    </td>
                 </tr>
             </template>            
             <template slot="no-data">
@@ -45,8 +54,14 @@
                     { text: 'Name', value: 'name', align: 'left' },
                     { text: 'Year', value: 'year'  },
                     { text: 'Author', value: 'authorName', align: 'left', sortable: false },
+                    { text: '', value: 'id', align: 'right', sortable: false },
                 ],
             };
+        },
+        methods:{
+            addBook(){
+                alert("aksjdlaksj");
+            }
         }
     }
 </script>

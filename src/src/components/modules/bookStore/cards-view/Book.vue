@@ -5,12 +5,12 @@
                 <v-btn fab absolute top left small color="red text-lg-right delete" >
                     <v-icon small color="white">delete</v-icon>
                 </v-btn>
-                <v-btn fab absolute top right small color="indigo text-lg-right" @click.stop="showEdition">
-                    <v-icon small color="white">edit</v-icon>
-                </v-btn>
                 <v-subheader  class="truncate">{{name}}</v-subheader>
             </v-card-title>
             <v-card-media :src="href" height="250px" xs12>
+                <v-btn fab absolute right small color="indigo text-lg-right" @click.stop="showEdition">
+                    <v-icon large color="white">zoom_in</v-icon>
+                </v-btn>
                 <!-- <span>{{name}}</span> -->
             </v-card-media>
             <v-card-actions>
@@ -31,7 +31,6 @@ export default {
         year:  { type: Number, default: 0 },
         authorName:  { type: String, default: "" },
         href: {type: String, default: ""},
-        // showEdition: {type: Function }
     },
     methods: {
         'showEdition': function() {
@@ -42,14 +41,6 @@ export default {
             return { name: this.name, year: this.year, authorName: this.authorName, href: this.href };
         }
     },
-//    ['name', 'year', 'authorName'],
-    // data(){
-    //     return {
-    //         name: this.name,
-    //         year: this.year,
-    //         authorName: this.authorName
-    //     };
-    // }
 }
 </script>
 

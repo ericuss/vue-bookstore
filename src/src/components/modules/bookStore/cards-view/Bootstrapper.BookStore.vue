@@ -22,7 +22,7 @@
       v-on:click="addBook">
         <v-icon large color="white">add</v-icon>
     </v-btn>
-    <book-editor :bookEdition="bookEdition" :bookForEdit="bookForEdit" v-on:hideEdition="hideEdition"></book-editor>
+    <book-preview :bookEdition="bookEdition" :bookForEdit="bookForEdit" v-on:hideEdition="hideEdition"></book-preview>
   </div>
 </template>
 
@@ -32,17 +32,15 @@ import getters from 'store/getter-types';
 
 // components
 import BookComponent from './Book';
-import BookModalEditorComponent from './Book.Editor';
-
+import BookPreviewComponent from './Book-preview';
 
 export default {
   name: 'bookstore',
   data() {
     return {
       msg: 'Hello world',
-      store: this.$store,
       bookEdition: false,
-      bookForEdit: {}
+      bookForEdit: {},
     };
   },
   computed: {
@@ -66,7 +64,7 @@ export default {
   },
   components:{
     book: BookComponent,
-    'book-editor': BookModalEditorComponent
+    'book-preview': BookPreviewComponent
   }
 };
 </script>

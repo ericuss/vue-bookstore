@@ -1,11 +1,7 @@
 
 <template>
   <v-app id="inspire">
-    <layout-menu  :drawer="drawer"></layout-menu>
-    <v-toolbar color="blue lighten-1" dark fixed app>
-      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <v-toolbar-title>Bookstore</v-toolbar-title>
-    </v-toolbar>
+    <layout-menu></layout-menu>
     <main>
       <v-content>
         <v-container fluid fill-height>
@@ -21,12 +17,9 @@
 
 <script>
   export default {
-    data: () => ({
-      drawer: true
-    }),
     props: {
       source: String
-    }
+    },
   }
 </script>
 
