@@ -23,9 +23,9 @@ module.exports = class CopyLibrary {
 
     ReadAndInsertBefore(file, pattern, line){
         let self = this;
-        fs.readFile(file, (err, f) => {
+        // fs.readFileSync(file, (err, f) => {
+       const f = fs.readFileSync(file)
             self.insertBefore(f, file, pattern, line);
-        });
     }
 
     insertBefore(f, file, pattern, lineToInsert){
@@ -65,16 +65,16 @@ module.exports = class CopyLibrary {
     }
 
     writeFile(file, str){
-        fs.writeFile(file, str , (err, fd) => {
+        fs.writeFileSync(file, str , (err, fd) => {
             if (err) {
                 if (err.code === 'EEXIST') {
-                console.error('myfile already exists');
-                return;
+                    console.error('myfile already exists');
+                    return;
+                }else{
+                    console.error(err.code);
                 }
-
                 throw err;
             }
-
         });
     }
 }

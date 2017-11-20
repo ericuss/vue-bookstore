@@ -1,21 +1,23 @@
-let CopyLib = require('./copyLib.js');
+let CopyLib = require('../../utils/copyLibrary.js');
 
 
 
 module.exports = class Commands {
     constructor(source) {
-        this.__generateProperties(source);
+        this.source = source;        
+        this.__generateProperties();
     }
-
-    __generateProperties(source) {
+    
+    __generateProperties() {
+        this.copyLib = new CopyLib(this.source);
         this.data = {
-            moduleName: this.props.moduleName,
-            include = {
-                getters: this.props.features.indexOf('includeGetters') > -1,
-                actions: this.props.features.indexOf('includeActions') > -1,
-                mutations: this.props.features.indexOf('includeMutations') > -1,
-                state: this.props.features.indexOf('includeState') > -1,
-                store: this.props.features.indexOf('includeStore') > -1,
+            moduleName: this.source.props.moduleName,
+            include: {
+                getters: this.source.props.features.indexOf('includeGetters') > -1,
+                actions: this.source.props.features.indexOf('includeActions') > -1,
+                mutations: this.source.props.features.indexOf('includeMutations') > -1,
+                state: this.source.props.features.indexOf('includeState') > -1,
+                store: this.source.props.features.indexOf('includeStore') > -1,
             },
         };
         
@@ -23,6 +25,10 @@ module.exports = class Commands {
         this.patterns = {
             storeImport: /import modules/i,
             storeModule: /modules: {/i,
+            actionConstantsImport: /import modules/i,
+            actionConstantsModule: /export default {/i,
+            getterConstantsImport: /import modules/i,
+            getterConstantsModule: /export default {/i,
         };
 
         // templates for insert in files
@@ -30,15 +36,15 @@ module.exports = class Commands {
             storeImport: `import ${this.data.moduleName}Module from './modules/${this.data.moduleName}/storeModule';`,            
             storeModule: `		${this.data.moduleName}: ${this.data.moduleName}Module,`,            
             getterConstantsImport: `import ${this.data.moduleName}Const from './modules/${this.data.moduleName}/action-types';`,            
-            getterConstantsModule: `		${this.data.moduleName}: ${this.data.moduleName}Const,`,            
+            getterConstantsModule: `	${this.data.moduleName}: ${this.data.moduleName}Const,`,            
             actionConstantsImport: `import ${this.data.moduleName}Const from './modules/${this.data.moduleName}/getter-types';`,            
-            actionConstantsModule: `		${this.data.moduleName}: ${this.data.moduleName}Const,`,            
+            actionConstantsModule: `	${this.data.moduleName}: ${this.data.moduleName}Const,`,            
         };
 
-        const routeStoreModule = `src/store/${this.data.moduleName}`;
+        const routeStoreModule = `src/store/modules/${this.data.moduleName}`;
 
         this.files = {
-            template: {
+            templates: {
                 actionTypes: 'action-types.js',
                 actions: 'actions.js',
                 getterTypes: 'getter-types.js',
@@ -102,18 +108,27 @@ module.exports = class Commands {
 
     // Modifications
 
-    updateStore() {
+    updateStoreImport() {
         this.copyLib.ReadAndInsertBefore(this.files.destination.store, this.patterns.storeImport, this.templates.storeImport);
+    }
+
+    updateStoreModule() {
         this.copyLib.ReadAndInsertBefore(this.files.destination.store, this.patterns.storeModule, this.templates.storeModule);
     }
     
-    updateGetterConstants() {
+    updateGetterConstantsImport() {
         this.copyLib.ReadAndInsertBefore(this.files.destination.getterTypes, this.patterns.getterConstantsImport, this.templates.getterConstantsImport);
+    }
+
+    updateGetterConstantsModule() {
         this.copyLib.ReadAndInsertBefore(this.files.destination.getterTypes, this.patterns.getterConstantsModule, this.templates.getterConstantsModule);
     }
     
-    updateActionConstants() {
+    updateActionConstantsImport() {
         this.copyLib.ReadAndInsertBefore(this.files.destination.actionTypes, this.patterns.actionConstantsImport, this.templates.actionConstantsImport);
+    }
+    
+    updateActionConstantsModule() {
         this.copyLib.ReadAndInsertBefore(this.files.destination.actionTypes, this.patterns.actionConstantsModule, this.templates.actionConstantsModule);
     }
 }

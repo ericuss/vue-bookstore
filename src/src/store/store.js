@@ -5,6 +5,7 @@ import Vuex from 'vuex';
 // import * as actions from './actions';
 // import * as mutations from './mutations';
 
+// import modules
 import bookModule from './Modules/books/storeModule';
 
 Vue.use(Vuex);

@@ -7,7 +7,7 @@ const prompts = [
     },{
         type: 'checkbox',
         name: 'features',
-        message: '¿files to add?',
+        message: 'Select parts',
         choices: [
             {
                 name: 'Getters',

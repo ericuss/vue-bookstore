@@ -11,8 +11,12 @@
   },
   "author": "",
   "license": "ISC",
-  "keywords": ["yeoman-generator"],
+  "keywords": [
+    "yeoman-generator"
+  ],
   "dependencies": {
-    "yeoman-generator": "2.0.1"
+    "chalk": "^2.3.0",
+    "yeoman-generator": "2.0.1",
+    "yosay": "^2.0.1"
   }
 }
