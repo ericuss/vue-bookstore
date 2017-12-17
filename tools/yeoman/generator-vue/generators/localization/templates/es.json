@@ -1,3 +1,5 @@
 {
-    "Sample": "Muestra"
+    "<%= moduleName %>":{
+        "Sample": "Muestra"
+    }
 }
