@@ -26,7 +26,7 @@ module.exports = class Commands {
             storeImport: `import ${this.data.moduleName}Module from './modules/${this.data.moduleName}/storeModule';`,     
             menuAddGridComponent: `import ${this.data.moduleName}GridComponent from '@/components/modules/${this.data.moduleName}/${this.data.moduleName}grid/gridView';`,       
             menuAddGridOptionMenu: `{ path: '/${this.data.moduleName}Grid', name: '${this.data.moduleName}Grid', component: ${this.data.moduleName}GridComponent, },`,       
-            menuLayoutAddOption: `{ icon: 'grid_on', text: 'Grid', link: '${this.data.moduleName}Grid' },`,       
+            menuLayoutAddOption: `{ icon: 'grid_on', text: '${this.data.moduleName}Grid', link: '${this.data.moduleName}Grid' },`,       
         };
 
         this.files = {

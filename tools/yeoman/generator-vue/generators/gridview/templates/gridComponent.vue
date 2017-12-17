@@ -47,7 +47,7 @@
         data() {
             return {
                 search: '',
-                items: this.$store.getters[getters.Sample.SAMPLE_GETTER],
+                items: this.$store.getters[getters.<%= moduleName %>.SAMPLE_GETTER],
                 headers: [
                     {
                         text: 'Name',
