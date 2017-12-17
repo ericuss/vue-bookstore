@@ -35,9 +35,9 @@ module.exports = class Commands {
         this.templates = {
             storeImport: `import ${this.data.moduleName}Module from './modules/${this.data.moduleName}/storeModule';`,            
             storeModule: `		${this.data.moduleName}: ${this.data.moduleName}Module,`,            
-            getterConstantsImport: `import ${this.data.moduleName}Const from './modules/${this.data.moduleName}/action-types';`,            
+            actionConstantsImport: `import * as ${this.data.moduleName}Const from './modules/${this.data.moduleName}/action-types';`,            
             getterConstantsModule: `	${this.data.moduleName}: ${this.data.moduleName}Const,`,            
-            actionConstantsImport: `import ${this.data.moduleName}Const from './modules/${this.data.moduleName}/getter-types';`,            
+            getterConstantsImport: `import * as ${this.data.moduleName}Const from './modules/${this.data.moduleName}/getter-types';`,            
             actionConstantsModule: `	${this.data.moduleName}: ${this.data.moduleName}Const,`,            
         };
 

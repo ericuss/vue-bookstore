@@ -3,8 +3,11 @@ const Generator = require('yeoman-generator');
 const chalk = require('chalk');
 const yosay = require('yosay');
 
-const projectUrl = 'https://github.com/ericuss/vue-bookstore.git';
+const questions = require('./questions.js');
+const Commands = require('./commands.js');
+
 const projectDir = 'vue-bookstore';
+
 module.exports = class extends Generator {
     prompting() {
         this.log(yosay(
@@ -15,22 +18,30 @@ module.exports = class extends Generator {
 
         return this.prompt(questions).then(props => {
             this.props = props;
-            console.log(props);
+
+            if(this.options.moduleName !== undefined){
+              this.props.moduleName = this.options.moduleName;
+            }
+      
+            // console.log(props);
         });
     }
 
     writing(){
         const directory = `./${projectDir}/src/`;
-        console.log(chalk.blue('clonning from Github ...'));
-        this.spawnCommandSync('git', ['clone', projectUrl]);
 
-        console.log(chalk.blue('Yarn process ...'));
-        this.spawnCommandSync('yarn', [], { cwd: `./${projectDir}/src/`});
+            
+        this.commands = new Commands(this);
 
-        console.log(chalk.blue('Opening vscode ...'));
-        this.spawnCommandSync('code-insiders', [`./${projectDir}/src/`]);
+        console.log(chalk.green('Copy grid view'));      
+        this.commands.copyGridView();
 
-        console.log(chalk.blue('Run first time ...'));
+        console.log(chalk.green('Update menu for grid view'));      
+        this.commands.updateMenuComponent();
+        this.commands.updateMenuOption();
+        this.commands.updateMenuOptionInLayout();
+
+        console.log(chalk.blue('Run project ...'));
         this.spawnCommandSync('npm', ['start'], { cwd: `./${projectDir}/src/`});
     }
 };

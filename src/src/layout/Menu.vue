@@ -28,6 +28,8 @@ export default {
         { icon: 'home', text: 'Home', link: '/' },
         { icon: 'book', text: 'Bookstore.Library', link: 'Bookstore' },
         { icon: 'grid_on', text: 'Grid', link: 'BookstoreCrud' },
+        // insert menu options
+
       ],
     };
   },

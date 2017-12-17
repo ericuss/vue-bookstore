@@ -18,6 +18,10 @@ const prompts = [
                 name: 'Generate localizer',
                 value: 'includeLocalizator',
                 checked: true
+            },{
+                name: 'Generate grid view sample',
+                value: 'includeGridView',
+                checked: true
             },
         ],
     },

@@ -11,8 +11,13 @@ module.exports = class extends Generator {
       'Welcome to ' + chalk.blue('localication creator') + ' generator!'
     ));
 
-    return this.prompt(questions).then(props => {
+    return this.prompt(questions(this)).then(props => {
       this.props = props;
+
+      if(this.options.moduleName !== undefined){
+        this.props.moduleName = this.options.moduleName;
+      }
+
       // console.log(props);
     });
   }

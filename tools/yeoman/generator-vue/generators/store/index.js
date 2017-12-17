@@ -13,7 +13,10 @@ module.exports = class extends Generator {
 
     return this.prompt(questions(this)).then(props => {
       this.props = props;
-      this.props.moduleName = this.options.moduleName;
+
+      if(this.options.moduleName !== undefined){
+        this.props.moduleName = this.options.moduleName;
+      }
 
       // console.log(props);
     });

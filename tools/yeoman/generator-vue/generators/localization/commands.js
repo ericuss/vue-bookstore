@@ -33,7 +33,7 @@ module.exports = class Commands {
             enLanguage: `            en${this.data.moduleName}Module,`,            
         };
 
-        const routeLocalizationModule = `src/localizations/${this.data.moduleName}`;
+        const routeLocalizationModule = `src/src/localizations/${this.data.moduleName}`;
 
         this.files = {
             templates: {
@@ -45,7 +45,7 @@ module.exports = class Commands {
                     en: `${routeLocalizationModule}/en.json`,
                     es: `${routeLocalizationModule}/es.json`,
                 },
-                localization: 'src/localizations/i18nwrapper.js',
+                localization: 'src/src/localizations/i18nwrapper.js',
             },
         };
     }

@@ -1,3 +1,3 @@
 const module = '<%= moduleName %>/';
 
-export const SAMPLE_MUTATION = `${module}sample_mutation`;
+export const ADD_SAMPLE_MUTATION = `${module}add_sample_mutation`;
