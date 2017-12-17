@@ -18,14 +18,19 @@ module.exports = class extends Generator {
 
     writing(){
         console.log(chalk.blue('Composing ...'));
+        
+        console.log('this props moduleName');
+        console.log(this.props.moduleName);
+        console.log('this.props.generators');
+        console.log(this.props.generators);
 
         if(this.props.generators.indexOf('includeStore') > -1) {
-            this.composeWith('vue:store');
+            this.composeWith('vue:store', { moduleName: this.props.moduleName });
         }
 
-        if(this.props.generators.indexOf('includeLocalizator') > -1) {
-            this.composeWith('vue:localization');
-        }
+        // if(this.props.generators.indexOf('includeLocalizator') > -1) {
+        //     this.composeWith('vue:localization');
+        // }
     }
 };
   

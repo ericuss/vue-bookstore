@@ -11,8 +11,10 @@ module.exports = class extends Generator {
       'Welcome to ' + chalk.blue('store creator') + ' generator!'
     ));
 
-    return this.prompt(questions).then(props => {
+    return this.prompt(questions(this)).then(props => {
       this.props = props;
+      this.props.moduleName = this.options.moduleName;
+
       // console.log(props);
     });
   }

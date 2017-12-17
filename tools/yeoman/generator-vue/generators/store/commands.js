@@ -41,7 +41,7 @@ module.exports = class Commands {
             actionConstantsModule: `	${this.data.moduleName}: ${this.data.moduleName}Const,`,            
         };
 
-        const routeStoreModule = `src/store/modules/${this.data.moduleName}`;
+        const routeStoreModule = `src/src/store/modules/${this.data.moduleName}`;
 
         this.files = {
             templates: {
@@ -65,9 +65,9 @@ module.exports = class Commands {
                     state: `${routeStoreModule}/state.js`,
                     storeModule: `${routeStoreModule}/storeModule.js`,
                 },
-                actionTypes: `src/store/action-types.js`,
-                getterTypes: `src/store/getter-types.js`,
-                store: 'src/store/store.js',
+                actionTypes: `src/src/store/action-types.js`,
+                getterTypes: `src/src/store/getter-types.js`,
+                store: 'src/src/store/store.js',
             },
         };
     }
