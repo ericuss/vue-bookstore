@@ -18,15 +18,15 @@ function resolve (dir) {
 
 const rules = utils.styleLoaders({ sourceMap: config.dev.cssSourceMap });
 
-rules.push({
-  test: /\.(js|vue)$/,
-  loader: 'eslint-loader',
-  enforce: 'pre',
-  include: [resolve('src'), resolve('test')],
-  options: {
-    formatter: require('eslint-friendly-formatter')
-  }
-});
+// rules.push({
+//   test: /\.(js|vue)$/,
+//   loader: 'eslint-loader',
+//   enforce: 'pre',
+//   include: [resolve('src'), resolve('test')],
+//   options: {
+//     formatter: require('eslint-friendly-formatter')
+//   }
+// });
 
 module.exports = merge(baseWebpackConfig, {
   module: {
