@@ -31,6 +31,12 @@ module.exports = class extends Generator {
         // if(this.props.generators.indexOf('includeLocalizator') > -1) {
         //     this.composeWith('vue:localization');
         // }
+
+        if(this.props.generators.indexOf('includeLocalizator') > -1) {
+            this.composeWith('vue:localization');
+        }
+
+        // this.composeWith('vue:grid-view', { blabla:'blablablalbla' });
     }
 };
   
